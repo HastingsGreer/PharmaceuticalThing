@@ -1,0 +1,27 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="formwrapper">
+  <h2 class="title">Please enter your demographic data</h2>
+  <form method="POST" action="/demographicData">
+    {{ form.csrf_token }}
+    {% for my_formfield in form.my_formfields_bound %}
+	  {{my_formfield.label}}  
+          <div class="form-field">{{ my_formfield.label }} {{ my_formfield }}
+	      {% if my_formfield.errors %}
+		<ul class="errors">
+		  {% for error in my_formfield.errors %}
+		    <li>{{ error }}</li>
+		  {% endfor %}
+		</ul>
+	      {% endif %}
+	    </div>
+    {% endfor %}
+    {{ form.submit }}
+  </form>
+</div>
+{% endblock %}

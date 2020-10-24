@@ -1,0 +1,13 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<h1>Pharmaceutical thing</h1>
+<ul>
+  <li><a href="{{ url_for('demographicData') }}">Submit your data <i class="fas fa-chevron-right"></i></a></li>
+  <li><a href="unimplemented"> Analyze data"<i class="fas fa-chevron-right"></i></a></li>
+</ul>
+{% endblock %}
