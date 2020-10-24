@@ -21,7 +21,6 @@ class DemographicDataForm(FlaskForm):
     my_formfields = []
     def __init__(self):
         super(DemographicDataForm, self).__init__()
-        print("initted")
         self.my_formfields_bound = [getattr(self, f) for f in self.my_formfields]
 
 
@@ -41,7 +40,6 @@ class DrugResponseDataForm(FlaskForm):
     my_formfields = []
     def __init__(self):
         super(DrugResponseDataForm, self).__init__()
-        print("initted")
         self.my_formfields_bound = [getattr(self, f) for f in self.my_formfields]
 
 for drugq in questions["perDrugQuestions"]:

@@ -1,5 +1,10 @@
 {
-  "intakeQuestions": [
+  "intakeQuestions": [ 
+    {
+      "name": "age",
+      "question": "What is your age in years (For privacy, please round to nearest 10)",
+      "type": "number"
+    },
     {
       "name": "height",
       "question": "What is your height in inches?",
@@ -23,7 +28,7 @@
     },
     {
       "name": "gender",
-      "question": "What is your gender",
+      "question": "What is your gender?",
       "type": "categorical",
       "categories": [
         "",
@@ -43,8 +48,8 @@
         "east asian",
         "south asian",
         "african american",
-        "pacific islander",
-        "native american",
+        "mative hawaiian or other pacific islander",
+        "native american or alaska native",
         "other"
       ]
     }
@@ -90,6 +95,7 @@
         "Yasmin",
         "Yaz",
         "Zenchent Fe",
+        "Other Pill",
         "IUDS: ===============",
         "Kyleena",
         "Liletta",
@@ -97,58 +103,64 @@
         "Paraguard",
         "Skyla",
         "IMPLANTS: ===========",
-        "Nexaplon"
+        "Nexaplon",
+	"OTHER: ==============",
+	"NuvaRing",
+	"Depo Shot (Depo-Provera)"
       ]
     },
     {
       "name": "nausea",
-      "question": "What side effects did you experience? Nausea",
+      "question": "What side effects did you experience?  Nausea:",
       "type": "boolean"
     },
     {
       "name": "breasttenderness",
-      "question": "Breast Tenderness",
+      "question": "Breast Tenderness:",
       "type": "boolean"
     },
     {
       "name": "acne",
-      "question": "Acne or other skin issues",
+      "question": "Acne or other skin issues:",
       "type": "boolean"
     },
     {
       "name": "weightgain",
-      "question": "Weight gain you considered significant",
+      "question": "Weight gain you considered significant:",
       "type": "boolean"
     },
     {
       "name": "spotting",
-      "question": "Spotting (Irregular bleeding) throughout the month",
+      "question": "Spotting (Irregular bleeding) throughout the month:",
       "type": "boolean"
     },
     {
       "name": "amenorrhea",
-      "question": "Lighter or absent period",
+      "question": "Lighter or absent period:",
       "type": "boolean"
     },
     {
       "name": "heavyperiod",
-      "question": "Heavier period",
+      "question": "Heavier period:",
       "type": "boolean"
     },
     {
       "name": "pain",
-      "question": "Pain assosciated with your birth control",
-      "type": "boolean"
+      "question": "Pain assosciated with your birth control:",
+      "type": "categorical",
+      "categories": ["No Pain", "Moderate Pain", "Severe Pain"]
     },
     {
       "name": "recommendation",
       "question": "Would you recommend this drug?",
-      "type": "boolean"
+      "type": "categorical" ,
+      "categories":["yes", "no"]
     },
     {
       "name": "stilluse",
       "question": "Do you still use this drug?",
-      "type": "boolean"
+      "type": "categorical",
+      "categories": ["yes", "no"]
     }
   ]
 }
