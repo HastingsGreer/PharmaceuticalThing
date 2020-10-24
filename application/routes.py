@@ -16,16 +16,21 @@ def home():
                            template='home-template')
 
 
+import json
+with open("questions.json") as q:
+    questions = json.load(q)
+
 @app.route('/demographicData', methods=('GET', 'POST'))
 def demographicData():
     form = DemographicDataForm()
     if form.validate_on_submit():
-        print(collection.insert_one({
-          "name":form.name.data,
-          "notes":form.notes.data,
-          "tag":form.tag.data,
-          "link":form.link.data
-          }))
+        dquestions = questions["intakeQuestions"]
+        print([q for q in dquestions])
+        database_item = {
+                q["name"]:getattr(form, q['name']).data
+                for q in dquestions
+        }
+        print(collection.insert_one(database_item))
         return redirect('/success')
     return render_template('demographicData.jinja2',
                            form=form,
