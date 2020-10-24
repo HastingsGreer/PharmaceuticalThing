@@ -1,41 +1,69 @@
 {
-  "intakeQuestions": [
-    {
-      "name": "height",
-      "question": "What is your height in cm?",
-      "type": "number"
-    },
-    {
-      "name": "weight",
-      "question": "What is your weight in kg?",
-      "type": "number"
-    },
-    {
-      "name": "gender",
-      "question": "What is your gender",
-      "type": "categorical",
-      "categories": [
-        "male",
-        "female",
-        "nonbinary"
-      ]
-    }
-  ],
-  "perDrugQuestions": [
-    {
-      "name": "dose",
-      "question": "what dose did you take of this drug? in mg per day",
-      "type": "number"
-    },
-    {
-      "name": "nausea",
-      "question": "Did you experience abnormal nausea when taking this drug?",
-      "type": "boolean"
-    },
-    {
-      "name": "weightgain",
-      "question": "Did you experience weight gain when taking this drug?",
-      "type": "boolean"
-    }
-  ]
+	"intakeQuestions": [{
+			"name": "height",
+			"question": "What is your height in inches?",
+			"type": "number"
+		},
+		{
+			"name": "weight",
+			"question": "What is your weight in lbs?",
+			"type": "number"
+		},
+		{
+			"name": "biological sex",
+			"question": "What is your biological sex?",
+			"type": "categorical",
+			"categories": [
+				"male",
+				"female",
+				"other"
+			]
+		},
+		{
+			"name": "gender",
+			"question": "What is your gender",
+			"type": "categorical",
+			"categories": [
+				"male",
+				"female",
+				"other"
+			]
+		},
+		{
+			"name": "ethnicity",
+			"question": "What is your ethnicity?",
+			"type": "categorical",
+			"categories": [
+				"caucasian",
+				"hispanic",
+				"east asian",
+				"south asian",
+				"african american",
+				"pacific islander",
+				"native american",
+				"other"
+			]
+		}
+	],
+	"perDrugQuestions": [{
+			"name": "dose",
+			"question": "what dose did you take of this drug? in mg per day",
+			"type": "number"
+		},
+		{
+			"name": "Side Effects",
+			"question": "What side effects did you experience?",
+			"type": "boolean"
+		},
+		{
+			"name": "recommendation",
+			"question": "Would you recommend this drug?",
+			"type": "boolean"
+		},
+		{
+			"name": "comment",
+			"question": "Would you recommend this drug?",
+			"type": "boolean"
+		}
+	]
 }
