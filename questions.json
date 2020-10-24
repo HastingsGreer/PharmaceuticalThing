@@ -52,7 +52,7 @@
       "question": "Which drug would you like to tell us about your experience with?",
       "type": "categorical",
       "categories": [
-        "PILLS =============="
+        "PILLS ==============",
         "Apri",
         "Aranelle",
         "Aviane",
