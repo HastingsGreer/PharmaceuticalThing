@@ -1,5 +1,5 @@
 {
-  "questions": [
+  "intakeQuestions": [
     {
       "name": "height",
       "question": "What is your height in cm?",
@@ -19,6 +19,23 @@
         "female",
         "nonbinary"
       ]
+    }
+  ],
+  "perDrugQuestions": [
+    {
+      "name": "dose",
+      "question": "what dose did you take of this drug? in mg per day",
+      "type": "number"
+    },
+    {
+      "name": "nausea",
+      "question": "Did you experience abnormal nausea when taking this drug?",
+      "type": "boolean"
+    },
+    {
+      "name": "weightgain",
+      "question": "Did you experience weight gain when taking this drug?",
+      "type": "boolean"
     }
   ]
 }
