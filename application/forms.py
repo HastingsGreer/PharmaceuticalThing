@@ -23,16 +23,6 @@ class DemographicDataForm(FlaskForm):
         super(DemographicDataForm, self).__init__()
         print("initted")
         self.my_formfields_bound = [getattr(self, f) for f in self.my_formfields]
-        
-    def bind(*args):
-        super(DemographicDataForm, self).bind(*args)
-        self.my_formfields_bound = []
-        print("ierere")
-        for name in self.my_formfields:
-            self.my_formfields_bound.append(
-                    getattr(self, name)
-            )
-            print(name)
 
 
 for demoq in questions['intakeQuestions']:
@@ -46,3 +36,23 @@ for demoq in questions['intakeQuestions']:
     DemographicDataForm.my_formfields.append( demoq["name"])
 DemographicDataForm.submit = SubmitField('Next (Your results with specific drugs)')
 
+class DrugResponseDataForm(FlaskForm):
+    "Drug response form"
+    my_formfields = []
+    def __init__(self):
+        super(DrugResponseDataForm, self).__init__()
+        print("initted")
+        self.my_formfields_bound = [getattr(self, f) for f in self.my_formfields]
+
+for drugq in questions["perDrugQuestions"]:
+    if drugq["type"] == 'categorical':
+        setattr(DrugResponseDataForm, drugq["name"], SelectField(drugq["question"], 
+            choices = [(c, c) for c in drugq["categories"]]))
+    if drugq["type"] == 'number':
+        setattr(DrugResponseDataForm, drugq["name"], DecimalField(drugq["question"]))
+    if drugq["type"] == 'boolean':
+        setattr(DrugResponseDataForm, drugq["name"], BooleanField(drugq["question"]))
+    DrugResponseDataForm.my_formfields.append( drugq["name"])
+
+DrugResponseDataForm.submit = SubmitField('Submit')
+DrugResponseDataForm.addAnotherDrug = SubmitField('Add Another Drug')
