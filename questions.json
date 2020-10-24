@@ -56,11 +56,6 @@
       ]
     },
     {
-      "name": "dose",
-      "question": "what dose did you take of this drug? in mg per day",
-      "type": "number"
-    },
-    {
       "name": "nausea",
       "question": "What side effects did you experience? Nausea",
       "type": "boolean"
