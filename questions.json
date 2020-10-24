@@ -15,7 +15,7 @@
       "question": "What is your biological sex?",
       "type": "categorical",
       "categories": [
-        "male",
+        "",
         "female",
         "other"
       ]
@@ -25,7 +25,8 @@
       "question": "What is your gender",
       "type": "categorical",
       "categories": [
-        "male",
+        "",
+	"male",
         "female",
         "other"
       ]
@@ -35,7 +36,8 @@
       "question": "What is your ethnicity?",
       "type": "categorical",
       "categories": [
-        "caucasian",
+        "",
+	"caucasian",
         "hispanic",
         "east asian",
         "south asian",
@@ -52,7 +54,7 @@
       "question": "Which drug would you like to tell us about your experience with?",
       "type": "categorical",
       "categories": [
-        "PILLS ==============",
+        "PILLS: ==============",
         "Apri",
         "Aranelle",
         "Aviane",
@@ -87,13 +89,13 @@
         "Yasmin",
         "Yaz",
         "Zenchent Fe",
-        "IUDS ===============",
+        "IUDS: ===============",
         "Kyleena",
         "Liletta",
         "Mirena",
         "Paraguard",
         "Skyla",
-        "IMPLANTS ===========",
+        "IMPLANTS: ===========",
         "Nexaplon"
       ]
     },
@@ -140,6 +142,11 @@
     {
       "name": "recommendation",
       "question": "Would you recommend this drug?",
+      "type": "boolean"
+    },
+    {
+      "name": "stilluse",
+      "question": "Do you still use this drug?",
       "type": "boolean"
     }
   ]
