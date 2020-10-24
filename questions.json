@@ -45,23 +45,62 @@
 			]
 		}
 	],
-	"perDrugQuestions": [{
+	"perDrugQuestions": [
+		{
+			"name": "drug",
+			"question": "Which drug would you like to tell us about your experience with?",
+			"type": "categorical"
+			"categories" : [
+			    "rubber duck",
+			]
+		},
+		{
 			"name": "dose",
 			"question": "what dose did you take of this drug? in mg per day",
 			"type": "number"
 		},
 		{
-			"name": "Side Effects",
-			"question": "What side effects did you experience?",
+			"name": "nausea",
+			"question": "What side effects did you experience? Nausea",
+			"type": "boolean"
+		},
+	        {
+			"name": "breasttenderness",
+			"question": "Breast Tenderness",
+			"type": "boolean"
+		},
+		{
+			"name": "acne",
+			"question": "Acne or other skin issues",
+			"type": "boolean"
+		},
+		{
+			"name": "weightgain",
+			"question": "Weight gain you considered significant",
+			"type": "boolean"
+		},
+		{
+			"name": "spotting",
+			"question": "Spotting (Irregular bleeding) throughout the month",
+			"type": "boolean"
+		},
+	        {
+			"name": "amenorrhea",
+			"question": "Lighter or absent period",
+			"type": "boolean"
+		},
+		{
+			"name": "heavyperiod",
+			"question": "Heavier period",
+			"type": "boolean"
+		},
+		{
+			"name": "pain",
+			"question": "Pain assosciated with your birth control",
 			"type": "boolean"
 		},
 		{
 			"name": "recommendation",
-			"question": "Would you recommend this drug?",
-			"type": "boolean"
-		},
-		{
-			"name": "comment",
 			"question": "Would you recommend this drug?",
 			"type": "boolean"
 		}
