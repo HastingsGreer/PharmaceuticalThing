@@ -16,6 +16,7 @@
       "type": "categorical",
       "categories": [
         "",
+	"male",
         "female",
         "other"
       ]

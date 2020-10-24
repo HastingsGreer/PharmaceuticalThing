@@ -2,7 +2,9 @@ from flask import url_for, render_template, redirect, session
 from flask import current_app as app
 from .forms import  DemographicDataForm, DrugResponseDataForm
 
-
+import tempfile
+import pickle
+import random
 import pymongo
 
 client = pymongo.MongoClient()
@@ -50,7 +52,11 @@ def drugResponseData():
         }
         session["response_building"]["drugs"].append(database_item)
         session.modified = True
-        if form.submit.data: 
+        if form.submit.data:
+            #pickledb
+            fname = "pickledb/" + str(random.random())[5:] + ".json"
+            with open(fname, "w") as f:
+                json.dump(session["response_building"], f)
             print(session["response_building"])
             return redirect("/success")
         if form.addAnotherDrug.data:
