@@ -9,8 +9,7 @@
   <h2 class="title">Please enter your demographic data</h2>
   <form method="POST" action="/demographicData">
     {{ form.csrf_token }}
-    {% for my_formfield in form.my_formfields_bound %}
-	  {{my_formfield.label}}  
+    {% for my_formfield in form.my_formfields_bound %} 
           <div class="form-field">{{ my_formfield.label }} {{ my_formfield }}
 	      {% if my_formfield.errors %}
 		<ul class="errors">
