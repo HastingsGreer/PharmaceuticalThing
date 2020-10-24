@@ -1,6 +1,7 @@
 # PharmaceuticalThing
 ```
 git clone https://github.com/HastingsGreer/PharmaceuticalThing
+cd PharmaceuticalThing
 conda create -n pharmathing python=3.7
 conda activate pharmathing
 conda install pip
