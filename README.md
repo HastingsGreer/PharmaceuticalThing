@@ -1,8 +1,11 @@
 # PharmaceuticalThing
 ```
 git clone https://github.com/HastingsGreer/PharmaceuticalThing
-sudo apt-get install python3-pip
-pip3 install -r requirements.txt
+cd PharmaceuticalThing
+conda create -n pharmathing python=3.7
+conda activate pharmathing
+conda install pip
+pip install -r requirements.txt
 ```
 Create a file name .env with one line in it:
 ```
