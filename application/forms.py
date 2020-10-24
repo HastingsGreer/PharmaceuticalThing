@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import (
                      SubmitField,
                      SelectField,
-                     DecimalField,
+                     FloatField,
                      BooleanField)
 from wtforms.validators import (DataRequired,
                                 EqualTo,
@@ -30,7 +30,7 @@ for demoq in questions['intakeQuestions']:
         setattr(DemographicDataForm, demoq["name"], SelectField(demoq["question"], 
             choices = [(c, c) for c in demoq["categories"]]))
     if demoq["type"] == 'number':
-        setattr(DemographicDataForm, demoq["name"], DecimalField(demoq["question"]))
+        setattr(DemographicDataForm, demoq["name"], FloatField(demoq["question"]))
     if demoq["type"] == 'boolean':
         setattr(DemographicDataForm, demoq["name"], BooleanField(demoq["question"]))
     DemographicDataForm.my_formfields.append( demoq["name"])
@@ -49,7 +49,7 @@ for drugq in questions["perDrugQuestions"]:
         setattr(DrugResponseDataForm, drugq["name"], SelectField(drugq["question"], 
             choices = [(c, c) for c in drugq["categories"]]))
     if drugq["type"] == 'number':
-        setattr(DrugResponseDataForm, drugq["name"], DecimalField(drugq["question"]))
+        setattr(DrugResponseDataForm, drugq["name"], FloatField(drugq["question"]))
     if drugq["type"] == 'boolean':
         setattr(DrugResponseDataForm, drugq["name"], BooleanField(drugq["question"]))
     DrugResponseDataForm.my_formfields.append( drugq["name"])

@@ -1,4 +1,4 @@
-from flask import url_for, render_template, redirect
+from flask import url_for, render_template, redirect, session
 from flask import current_app as app
 from .forms import  DemographicDataForm, DrugResponseDataForm
 
@@ -25,12 +25,15 @@ def demographicData():
     form = DemographicDataForm()
     if form.validate_on_submit():
         dquestions = questions["intakeQuestions"]
-        print([q for q in dquestions])
         database_item = {
                 q["name"]:getattr(form, q['name']).data
                 for q in dquestions
         }
-        #print(collection.insert_one(database_item))
+        session["response_building"] = {
+                "demographic_data": database_item,
+                "drugs": []
+        }
+        
         return redirect('/drugResponseData')
     return render_template('demographicData.jinja2',
                            form=form,
@@ -41,14 +44,14 @@ def drugResponseData():
     form = DrugResponseDataForm()
     if form.validate_on_submit():
         dquestions = questions["perDrugQuestions"]
-        print([q for q in dquestions])
         database_item = {
                 q["name"]:getattr(form, q['name']).data
                 for q in dquestions
         }
-        #print(collection.insert_one(database_item))
-        print(form.submit)
+        session["response_building"]["drugs"].append(database_item)
+        session.modified = True
         if form.submit.data: 
+            print(session["response_building"])
             return redirect("/success")
         if form.addAnotherDrug.data:
             return redirect("/drugResponseData")
