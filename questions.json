@@ -1,0 +1,22 @@
+{
+  [
+    {
+      "name" : "height",
+      "question" : "What is your height in cm?",
+      "type": "number"
+    },
+    {
+      "name" : "weight",
+      "question" : "What is your weight in kg?",
+      "type" : "number"
+    },
+    {
+      "name" : "gender",
+      "question" : "What is your gender",
+      "type" : "categorical",
+      "categories" : ["male", "female", "nonbinary"],
+    }
+  ]
+}
+    
+   
