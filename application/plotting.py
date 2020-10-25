@@ -16,6 +16,8 @@ for f in os.listdir("pickledb"):
 
 responses_flat = []
 
+from .forms import questions
+
 for res in responses:
     for drug in res["drugs"]:
         responses_flat.append({**res["demographic_data"], **drug})
@@ -33,7 +35,7 @@ def plot(x_key, y_key, filters=[]):
         if data_valid(r, filters):
             xs.append(x_key(r))
             ys.append(y_key(r))
-    plt.scatter(xs, ys)
+    plt.scatter(xs, ys, s=390, alpha=.05)
     return PIL_show()
 
 def data_valid(r, filters):
