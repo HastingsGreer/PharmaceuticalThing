@@ -5,6 +5,7 @@ from wtforms import (
                      SelectField,
                      FloatField,
                      BooleanField)
+from wtforms.fields import Field
 from wtforms.validators import (DataRequired,
                                 EqualTo,
                                 Length,

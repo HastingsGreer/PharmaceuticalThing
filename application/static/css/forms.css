@@ -1,5 +1,6 @@
 form {
-  background: white;
+  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+  ;
   width: 100%;
 }
 
@@ -15,7 +16,7 @@ form {
 
 .title {
   font-size: 1.7rem;
-  color: #5f6988;
+  color: #000000;
   font-weight: 300;
   border-bottom: 1px solid #dbe3ec;
   padding-bottom: 5px;
@@ -23,7 +24,7 @@ form {
 }
 
 .formwrapper {
-  background: white;
+  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
   width: 350px;
   box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
   padding: 50px;
@@ -31,7 +32,7 @@ form {
 
 label {
   font-size: .9em;
-  color: #5f6988;
+  color: #000000;
   margin-bottom: 3px;
   display: block;
   font-weight: 300;
@@ -44,7 +45,7 @@ input, textarea, select {
   border-radius: 2px;
   border: 1px solid #d4d9e3;
   font-weight: 200;
-  color: #4d5060;
+  color: #000000;
   font-family: 'Poppins', sans-serif;
   transition: all .3s ease-out;
   font-size: .9em;
@@ -136,7 +137,7 @@ i {
   bottom: 0;
   right: 16px;
   height: fit-content;
-  color: grey;
+  color: rgb(0, 0, 0);
 }
 
 .g-recaptcha div {

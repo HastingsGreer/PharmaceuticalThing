@@ -6,8 +6,6 @@
 
 {% block content %}
 <h1>Pharmaceutical thing</h1>
-<ul>
-  <li><a href="{{ url_for('demographicData') }}">Submit your data <i class="fas fa-chevron-right"></i></a></li>
-  <li><a href="visualization"> Analyze data<i class="fas fa-chevron-right"></i></a></li>
-</ul>
+  <button class="enter"><a href="{{ url_for('demographicData') }}">Submit your data <i class="fas fa-chevron-right"></i></a></button>
+  <button class="analyze"><a href="visualization"> Analyze data<i class="fas fa-chevron-right"></i></a></button>
 {% endblock %}
