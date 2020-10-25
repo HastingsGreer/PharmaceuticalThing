@@ -28,6 +28,16 @@
         </ul>
       {% endif %}
     </div>
+
+    <div class="form-field">{{ form.drug.label }} {{ form.drug }}
+      {% if form.drug.errors %}
+        <ul class="errors">
+          {% for error in form.drug.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
     {{ form.submit }}
   </form>
 </div>

@@ -61,8 +61,10 @@ drugQuestions = questions["perDrugQuestions"]
 allQuestions = demoQuestions + drugQuestions
 
 questionNames = [(q["name"], q["name"]) for q in allQuestions]
-
+drugs = questions["perDrugQuestions"][0]["categories"]
 class VisualizationSettingsForm(FlaskForm):
+    drug = SelectField("Drug or Category to investigate", 
+        choices=[("Any", "Any")] + [(d, d) for d in drugs])
     x_var = SelectField("'Independent' Variable", choices=questionNames)
     y_var = SelectField("'Dependent' Variable", choices=questionNames)
     submit = SubmitField("Update Chart") 

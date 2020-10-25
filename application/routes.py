@@ -81,12 +81,13 @@ def plot():
 @app.route('/visualization', methods=('GET', 'POST'))
 def visualization():
     form = VisualizationSettingsForm()
-    session["plot_params"] = {"x_var":"height", "y_var":"weight"}
+    session["plot_params"] = {"x_var":"height", "y_var":"weight", "drug": "Any"}
 
     if form.validate_on_submit():
         session.modified=True
         plot_params = session["plot_params"]
         plot_params["x_var"] = form.x_var.data
         plot_params["y_var"] = form.y_var.data
+        plot_params["drug"] = form.drug.data
 
     return render_template("visualization.jinja2", form=form, template='form-template')

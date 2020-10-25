@@ -55,5 +55,14 @@ def make_plot(params):
     drug = params["drug"]
     plt.xlabel(x_var)
     plt.ylabel(y_var)
-    drug_filter = lambda x: any(d["drug"] == drug for d in x)
-    return plot(lambda x: x["demographic_data"][x_var], lambda x: x["demographic_data"][y_var], filters)
+    if drug != "Any":
+        drug_filter = lambda x: any(d["drug"] == drug for d in x["drugs"])
+    else:
+        drug_filter = lambda x: True
+    return plot(
+        lambda x: x["demographic_data"][x_var], 
+        lambda x: x["demographic_data"][y_var], filters + [drug_filter])
+
+
+
+
