@@ -82,7 +82,7 @@ def plot():
 @app.route('/visualization', methods=('GET', 'POST'))
 def visualization():
     form = VisualizationSettingsForm()
-    session["plot_params"] = {"x_var":"height", "y_var":"weight", "drug": "Any","demo_filters":
+    session["plot_params"] = {"x_var":"weight", "y_var":"nausea", "drug": "Any","demo_filters":
        {q:getattr(form, q).default for q in form.my_formfields}
     }
 
@@ -97,4 +97,8 @@ def visualization():
 @app.route('/annagraphs')
 def annagraphs():
     fnames = os.listdir("application/static/annagraphs")
-    return render_template("annagraphs.jinja2", fnames=["/annagraphs/" + f for f in fnames], template='form-template')
+    return render_template("annagraphs.jinja2", fnames=["/annagraphs/" + f for f in sorted(fnames)], template='form-template')
+@app.route('/patientResults')
+def personal():
+    fnames = os.listdir("application/static/patientResults")
+    return render_template("patientResults.jinja2", fnames=["/patientResults/" + f for f in sorted(fnames)], template='form-template')

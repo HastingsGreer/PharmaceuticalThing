@@ -65,8 +65,8 @@ drugs = questions["perDrugQuestions"][0]["categories"]
 class VisualizationSettingsForm(FlaskForm):
     drug = SelectField("Drug or Category to investigate", 
         choices=[("Any", "Any")] + [(d, d) for d in drugs])
-    x_var = SelectField("'Independent' Variable", choices=questionNames)
-    y_var = SelectField("'Dependent' Variable", choices=questionNames)
+    x_var = SelectField("'Independent' Variable", choices=questionNames, default="weight")
+    y_var = SelectField("'Dependent' Variable", choices=questionNames, default="nausea")
     submit = SubmitField("Update Chart")
 
     my_formfields = []

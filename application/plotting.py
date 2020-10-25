@@ -1,7 +1,7 @@
 import matplotlib
 matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
+plt.rcParams['figure.constrained_layout.use'] = True
 import PIL
 import os
 import json
@@ -32,6 +32,7 @@ def serve_pil_image(pil_img):
 def plot(x_key, y_key, filters=[]):
     xs = []
     ys = []
+    plt.xticks(rotation=45)
     for r in responses_flat:
         if data_valid(r, filters):
             xs.append(x_key(r))

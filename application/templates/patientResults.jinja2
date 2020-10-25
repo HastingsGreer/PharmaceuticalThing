@@ -1,0 +1,15 @@
+
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+/<h1>(Mock) Customized patient results</h1>
+<ul>
+{% for fname in fnames %}
+  <li> <img src= {{ url_for('static', filename=fname) }} > </img> </li>
+{% endfor %}
+</ul>
+{% endblock %}
