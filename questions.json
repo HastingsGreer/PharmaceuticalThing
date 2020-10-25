@@ -110,39 +110,51 @@
       ]
     },
     {
+      "name" : "What side effects did you experience?",
+      "question": "What side effects did you experience?",
+      "type": "none"
+    },
+    {
       "name": "nausea",
-      "question": "What side effects did you experience?  Nausea:",
-      "type": "boolean"
+      "checked" : false,
+      "question" : "Nausea",
+      "type" : "boolean"
     },
     {
       "name": "breasttenderness",
       "question": "Breast Tenderness:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "acne",
       "question": "Acne or other skin issues:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "weightgain",
       "question": "Weight gain you considered significant:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "spotting",
       "question": "Spotting (Irregular bleeding) throughout the month:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "amenorrhea",
       "question": "Lighter or absent period:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "heavyperiod",
       "question": "Heavier period:",
-      "type": "boolean"
+      "checked" : false,
+      "type" : "boolean"
     },
     {
       "name": "pain",
