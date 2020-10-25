@@ -1,0 +1,34 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="formwrapper">
+  <img src=plot>
+  <h2 class="title">Various Arcane Settings</h2>
+  <form method="POST" action="/visualization">
+    {{ form.csrf_token }}
+    <div class="form-field">{{ form.x_var.label }} {{ form.x_var }}
+      {% if form.x_var.errors %}
+        <ul class="errors">
+          {% for error in form.x_var.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div class="form-field">{{ form.y_var.label }} {{ form.y_var }}
+      {% if form.y_var.errors %}
+        <ul class="errors">
+          {% for error in form.y_var.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    {{ form.submit }}
+  </form>
+</div>
+{% endblock %}

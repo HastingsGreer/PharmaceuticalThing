@@ -54,3 +54,15 @@ for drugq in questions["perDrugQuestions"]:
 
 DrugResponseDataForm.submit = SubmitField('Submit')
 DrugResponseDataForm.addAnotherDrug = SubmitField('Add Another Drug')
+
+
+demoQuestions = questions["intakeQuestions"]
+drugQuestions = questions["perDrugQuestions"]
+allQuestions = demoQuestions + drugQuestions
+
+questionNames = [(q["name"], q["name"]) for q in allQuestions]
+
+class VisualizationSettingsForm(FlaskForm):
+    x_var = SelectField("'Independent' Variable", choices=questionNames)
+    y_var = SelectField("'Dependent' Variable", choices=questionNames)
+    submit = SubmitField("Update Chart") 

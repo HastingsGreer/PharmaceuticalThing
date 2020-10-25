@@ -4,3 +4,4 @@
 */*.swp
 */*/*.swp
 pickledb/*
+.DS_Store

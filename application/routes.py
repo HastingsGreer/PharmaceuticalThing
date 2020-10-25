@@ -1,6 +1,8 @@
 from flask import url_for, render_template, redirect, session
 from flask import current_app as app
-from .forms import  DemographicDataForm, DrugResponseDataForm
+from .forms import  DemographicDataForm, DrugResponseDataForm, VisualizationSettingsForm
+
+from .plotting import serve_pil_image, make_plot
 
 import tempfile
 import pickle
@@ -69,3 +71,22 @@ def drugResponseData():
 def success():
     return render_template('success.jinja2',
                            template='success-template')
+
+@app.route('/plot', methods=('GET', 'POST'))
+def plot():
+    params = session["plot_params"]
+    pil_image = make_plot(params)
+    return serve_pil_image(pil_image)
+
+@app.route('/visualization', methods=('GET', 'POST'))
+def visualization():
+    form = VisualizationSettingsForm()
+    session["plot_params"] = {"x_var":"height", "y_var":"weight"}
+
+    if form.validate_on_submit():
+        session.modified=True
+        plot_params = session["plot_params"]
+        plot_params["x_var"] = form.x_var.data
+        plot_params["y_var"] = form.y_var.data
+
+    return render_template("visualization.jinja2", form=form, template='form-template')
