@@ -67,4 +67,20 @@ class VisualizationSettingsForm(FlaskForm):
         choices=[("Any", "Any")] + [(d, d) for d in drugs])
     x_var = SelectField("'Independent' Variable", choices=questionNames)
     y_var = SelectField("'Dependent' Variable", choices=questionNames)
-    submit = SubmitField("Update Chart") 
+    submit = SubmitField("Update Chart")
+
+    my_formfields = []
+    def __init__(self):
+        super(VisualizationSettingsForm, self).__init__()
+        self.my_formfields_bound = [getattr(self, f) for f in self.my_formfields]
+
+for demoq in questions["intakeQuestions"]:
+    if demoq["type"] == 'categorical':
+        setattr(VisualizationSettingsForm, demoq["name"], SelectField("Filter by " + demoq["name"], 
+            choices = [("Any", "Any")] + [(c, c) for c in demoq["categories"]][1:]))
+        VisualizationSettingsForm.my_formfields.append( demoq["name"] )
+    if demoq["type"] == 'number':
+        setattr(VisualizationSettingsForm, demoq["name"] + "_min", FloatField("Minimum " +  demoq["name"], default=0))
+        setattr(VisualizationSettingsForm, demoq["name"] + "_max", FloatField("Maximum " +  demoq["name"], default=999))
+        VisualizationSettingsForm.my_formfields.append( demoq["name"] + "_min")
+        VisualizationSettingsForm.my_formfields.append( demoq["name"] + "_max")

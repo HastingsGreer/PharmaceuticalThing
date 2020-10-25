@@ -30,7 +30,7 @@
         </ul>
       {% endif %}
     </div>
-
+    <h2 class="title"> Filters </h2>
     <div class="form-field">{{ form.drug.label }} {{ form.drug }}
       {% if form.drug.errors %}
         <ul class="errors">
@@ -40,6 +40,18 @@
         </ul>
       {% endif %}
     </div>
+    
+    {% for my_formfield in form.my_formfields_bound %} 
+          <div class="form-field">{{ my_formfield.label }} {{ my_formfield }}
+	      {% if my_formfield.errors %}
+		<ul class="errors">
+		  {% for error in my_formfield.errors %}
+		    <li>{{ error }}</li>
+		  {% endfor %}
+		</ul>
+	      {% endif %}
+	    </div>
+    {% endfor %}
   </form>
 </div>
 {% endblock %}
