@@ -7,7 +7,7 @@ import os
 import json
 from io import BytesIO
 from flask import send_file
-
+from .forms import demoQuestions
 responses = []
 
 for f in os.listdir("pickledb"):
@@ -17,6 +17,7 @@ for f in os.listdir("pickledb"):
 responses_flat = []
 
 from .forms import questions
+
 
 for res in responses:
     for drug in res["drugs"]:
@@ -66,12 +67,22 @@ def make_plot(params):
         drug_filter = lambda x: x["drug"] == drug
     else:
         drug_filter = lambda x: True
-    
-    
-
+     
+    extra_filters = [drug_filter]
+    for question in demoQuestions:
+        print(question)
+        if question["type"] == "number":
+            mymin = params["demo_filters"][question["name"] + "_min"]
+            mymax = params["demo_filters"][question["name"] + "_max"]
+            print(mymin, mymax)
+            extra_filters.append((
+                lambda n, x, q: (
+                    lambda y: n < y[q["name"]] < x)
+                )(mymin, mymax, question)) 
+        print(params["demo_filters"])
     return plot(
         lambda x: x[x_var], 
-        lambda x: x[y_var], filters + [drug_filter])
+        lambda x: x[y_var], filters + extra_filters)
 
 
 
