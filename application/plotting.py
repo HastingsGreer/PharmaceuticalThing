@@ -14,6 +14,11 @@ for f in os.listdir("pickledb"):
     with open("pickledb/" + f, "r") as ff:
 	    responses.append(json.load(ff))
 
+responses_flat = []
+
+for res in responses:
+    for drug in res["drugs"]:
+        responses_flat.append({**res["demographic_data"], **drug})
 
 def serve_pil_image(pil_img):
     img_io = BytesIO()
@@ -24,7 +29,7 @@ def serve_pil_image(pil_img):
 def plot(x_key, y_key, filters=[]):
     xs = []
     ys = []
-    for r in responses:
+    for r in responses_flat:
         if data_valid(r, filters):
             xs.append(x_key(r))
             ys.append(y_key(r))
@@ -46,7 +51,7 @@ def PIL_show():
 
 
 filters = [
-    lambda x: "age" in x["demographic_data"]
+    lambda x: "age" in x
 ]
 def make_plot(params):
     plt.clf()
@@ -56,12 +61,15 @@ def make_plot(params):
     plt.xlabel(x_var)
     plt.ylabel(y_var)
     if drug != "Any":
-        drug_filter = lambda x: any(d["drug"] == drug for d in x["drugs"])
+        drug_filter = lambda x: x["drug"] == drug
     else:
         drug_filter = lambda x: True
+    
+    
+
     return plot(
-        lambda x: x["demographic_data"][x_var], 
-        lambda x: x["demographic_data"][y_var], filters + [drug_filter])
+        lambda x: x[x_var], 
+        lambda x: x[y_var], filters + [drug_filter])
 
 
 
