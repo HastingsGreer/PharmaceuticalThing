@@ -82,7 +82,7 @@ def plot():
 @app.route('/visualization', methods=('GET', 'POST'))
 def visualization():
     form = VisualizationSettingsForm()
-    session["plot_params"] = {"x_var":"height", "y_var":"weight", "drug": "Any"}
+    session["plot_params"] = {"x_var":"age", "y_var":"age", "drug": "Any"}
 
     if form.validate_on_submit():
         session.modified=True
@@ -91,7 +91,7 @@ def visualization():
         plot_params["y_var"] = form.y_var.data
         plot_params["drug"] = form.drug.data
 
-    return render_template("visualization.jinja2", form=form, template='form-template')
+    return render_template("visualization.jinja2", form=form, template='form-template', whoop=str(random.random())[5:])
 @app.route('/annagraphs')
 def annagraphs():
     fnames = os.listdir("application/static/annagraphs")

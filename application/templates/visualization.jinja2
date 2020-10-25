@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="formwrapper">
-  <img src=plot>
+  <img src=plot?horse={{ whoop }} >
   <h2 class="title">Various Arcane Settings</h2>
   <form method="POST" action="/visualization">
     {{ form.csrf_token }}
