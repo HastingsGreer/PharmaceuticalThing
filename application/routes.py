@@ -1,4 +1,5 @@
 from flask import url_for, render_template, redirect, session
+import os
 from flask import current_app as app
 from .forms import  DemographicDataForm, DrugResponseDataForm, VisualizationSettingsForm
 
@@ -91,3 +92,7 @@ def visualization():
         plot_params["drug"] = form.drug.data
 
     return render_template("visualization.jinja2", form=form, template='form-template')
+@app.route('/annagraphs')
+def annagraphs():
+    fnames = os.listdir("application/static/annagraphs")
+    return render_template("annagraphs.jinja2", fnames=["/annagraphs/" + f for f in fnames], template='form-template')
