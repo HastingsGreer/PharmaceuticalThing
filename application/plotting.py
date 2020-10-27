@@ -71,16 +71,13 @@ def make_plot(params):
      
     extra_filters = [drug_filter]
     for question in demoQuestions:
-        print(question)
         if question["type"] == "number":
             mymin = params["demo_filters"][question["name"] + "_min"]
             mymax = params["demo_filters"][question["name"] + "_max"]
-            print(mymin, mymax)
             extra_filters.append((
                 lambda n, x, q: (
                     lambda y: n < y[q["name"]] < x)
                 )(mymin, mymax, question)) 
-        print(params["demo_filters"])
     return plot(
         lambda x: x[x_var], 
         lambda x: x[y_var], filters + extra_filters)

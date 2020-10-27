@@ -82,7 +82,7 @@ def plot():
 @app.route('/visualization', methods=('GET', 'POST'))
 def visualization():
     form = VisualizationSettingsForm()
-    session["plot_params"] = {"x_var":"weight", "y_var":"nausea", "drug": "Any","demo_filters":
+    session["plot_params"] = {"x_var":"recommendation", "y_var":"drug", "drug": "Any","demo_filters":
        {q:getattr(form, q).default for q in form.my_formfields}
     }
 

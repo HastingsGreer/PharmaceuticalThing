@@ -7,7 +7,6 @@
 {% block content %}
 <div class="formwrapper">
   <img src=plot?horse={{ whoop }} >
-  <h2 class="title">Various Arcane Settings</h2>
   <form method="POST" action="/visualization">
     {{ form.csrf_token }}
   
@@ -30,7 +29,6 @@
         </ul>
       {% endif %}
     </div>
-    <h2 class="title"> Filters </h2>
     <div class="form-field">{{ form.drug.label }} {{ form.drug }}
       {% if form.drug.errors %}
         <ul class="errors">
@@ -41,6 +39,7 @@
       {% endif %}
     </div>
     
+    <h3 class="title"> Use these filters to explore only the section of our data similar to you! </h3>
     {% for my_formfield in form.my_formfields_bound %} 
           <div class="form-field">{{ my_formfield.label }} {{ my_formfield }}
 	      {% if my_formfield.errors %}
