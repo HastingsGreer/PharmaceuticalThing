@@ -6,6 +6,7 @@ conda create -n pharmathing python=3.7
 conda activate pharmathing
 conda install pip
 pip install -r requirements.txt
+nkdir pickledb
 ```
 Create a file name .env with one line in it:
 ```
