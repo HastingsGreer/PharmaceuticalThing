@@ -57,6 +57,15 @@ def PIL_show():
 filters = [
     lambda x: "age" in x
 ]
+class NumericalFilter:
+    def __init__(self, min, max, q):
+        self.min = min
+        self.max = max
+        self.q = q
+    def __call__(self, y):
+        return self.min < y[self.q["name"]] < self.max
+
+
 def make_plot(params):
     plt.clf()
     x_var = params["x_var"]
@@ -74,10 +83,7 @@ def make_plot(params):
         if question["type"] == "number":
             mymin = params["demo_filters"][question["name"] + "_min"]
             mymax = params["demo_filters"][question["name"] + "_max"]
-            extra_filters.append((
-                lambda n, x, q: (
-                    lambda y: n < y[q["name"]] < x)
-                )(mymin, mymax, question)) 
+            extra_filters.append(NumericalFilter(mymin, mymax, question))
     return plot(
         lambda x: x[x_var], 
         lambda x: x[y_var], filters + extra_filters)
