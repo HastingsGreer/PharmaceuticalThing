@@ -171,6 +171,11 @@
       "question": "Do you still use this drug?",
       "type": "categorical",
       "categories": ["yes", "no"]
+    },
+    {
+      "name": "comments",
+      "question": "If you would like to, please share any additional comments on your experience with this drug:",
+      "type": "string"
     }
   ]
 }
