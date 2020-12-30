@@ -145,6 +145,16 @@
       "type": "boolean"
     },
     {
+      "name": "depression",
+      "question": "Depression:",
+      "type": "boolean"
+    },
+    {
+      "name": "anxiety",
+      "question": "Anxiety:",
+      "type": "boolean"
+    },
+    {
       "name": "pain",
       "question": "Pain assosciated with your birth control:",
       "type": "categorical",
